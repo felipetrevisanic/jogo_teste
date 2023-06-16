@@ -1,0 +1,27 @@
+.navBar{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(18, 243, 149, 0.712);
+    align-items: center;
+}
+
+.navBar h3 {
+    margin-left: 24px;
+    font-size: 32px;
+    
+    color: black;
+}
+
+.links{
+    display: flex;
+    justify-content: end;
+    margin-right: 24px;
+}
+
+.links p {
+    margin-right: 16px;
+    font-size: 24px;
+    font-weight: bold;
+
+    color: black;
+}

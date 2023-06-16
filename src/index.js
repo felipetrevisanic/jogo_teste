@@ -4,10 +4,48 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+// 1 - configurando router
+
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+
+import Home from './routes/Home';
+import Login from './routes/Login';
+import ErrorPage from './routes/Error';
+import Resultados from './routes/Resultados'
+import Jogo from './routes/Jogo';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <Home/>
+      },
+      {
+        path: 'login',
+        element: <Login/>
+      },
+      {
+        path: '/resultados',
+        element: <Resultados/>
+      },
+      {
+        path: '/jogo',
+        element: <Jogo/>
+      }
+    ]
+  },
+  // 5 - nested routes
+])
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
