@@ -3,11 +3,15 @@ import Button from "../../components/Button";
 import InputItem from "../../components/InputItem";
 import './Login.css'
 
+import axios from "axios"
+
 function Login() {
 
   const enviarDados = (e) => {
     e.preventDefault()
-    console.log(e)
+    // console.log(e)
+    axios.get('http://localhost:3003/').then((res) => res.data)
+
   }
 
   return (

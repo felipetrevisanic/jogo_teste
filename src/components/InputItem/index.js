@@ -1,6 +1,8 @@
 import './InputItem.css'
 
 const InputItem = (props) => {
+
+    
     return(
         <div className='item'>
             <label>{props.name}:</label>
