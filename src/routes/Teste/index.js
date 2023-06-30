@@ -2,11 +2,13 @@ import Block from "../../components/Block"
 import { useEffect, useState } from "react"
 import ax from "../../service"
 import { useNavigate ,useParams } from "react-router-dom"
-import './Jogo.css'
 
 
 
-const Jogo = ({ nome }) => {
+const Teste = ({ nome }) => {
+
+    let _id = useParams()
+    console.log(_id)
 
   const navigate = useNavigate()
 
@@ -14,9 +16,15 @@ const Jogo = ({ nome }) => {
 
 
     useEffect(() => {
+
+//         console.log(typeof(_id))
+
         const buscarDadosDaAPI = async () => {
             try {
-              const response = await ax.get(`/testes`); 
+                
+                
+
+              const response = await ax.get(`/testes/${_id}`); 
               setTeste(response.data);
 
             } catch (error) {
@@ -25,11 +33,11 @@ const Jogo = ({ nome }) => {
           };
           
           buscarDadosDaAPI();
-        }, [nome])
+        }, [_id])
         
-        const navegar = () => {
-          {teste?.map((item) => (navigate(`/teste/${item._id}`)))}
-        }
+//         const navegar = () => {
+//           {teste?.map((item) => (navigate(`/teste/${item._id}`)))}
+    // }
 
     return(
         <div>
@@ -37,7 +45,7 @@ const Jogo = ({ nome }) => {
                 <h1>{nome}</h1>
                 <ul>
                  
-                    {teste?.map((item) => (<div className="testes"><li onClick={navegar}>{item.nome}</li></div>))}
+                    {/* {teste?.map((item) => (item.nome))} */}
                 
                 </ul>
             </Block>
@@ -45,4 +53,4 @@ const Jogo = ({ nome }) => {
     )
 }
 
-export default Jogo
+export default Teste

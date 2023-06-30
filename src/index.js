@@ -14,6 +14,10 @@ import Login from './routes/Login';
 import ErrorPage from './routes/Error';
 import Resultados from './routes/Resultados'
 import Jogo from './routes/Jogo';
+import CadastraTeste from './routes/CadastraTeste';
+import CadastraPergunta from './routes/CadastraPergunta';
+import Teste from './routes/Teste';
+
 
 const router = createBrowserRouter([
   {
@@ -34,9 +38,27 @@ const router = createBrowserRouter([
         element: <Resultados/>
       },
       {
-        path: '/jogo',
+        path: '/teste',
         element: <Jogo/>
-      }
+      },
+      {
+        path: '/teste/:id',
+        element: <Teste/>
+      },
+      {
+        path: '/cadastra-teste',
+        element: <CadastraTeste/>
+      },
+      {
+        path: '/cadastra-pergunta/:_id',
+        element: <CadastraPergunta/>
+      },
+      {
+        // path: '/seleciona-teste',
+        // element: <SelecionaTeste/>
+      },
+      
+      
     ]
   },
   // 5 - nested routes

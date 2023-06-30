@@ -1,24 +1,39 @@
+import './Login.css'
 import Block from "../../components/Block";
 import Button from "../../components/Button";
 import InputItem from "../../components/InputItem";
-import './Login.css'
+import { useNavigate } from 'react-router-dom';
+import {useState} from "react"
+import ax from "../../service/"
 
-import axios from "axios"
+function Login(props) {
 
-function Login() {
-
+  const [login, setLogin] = useState('')
+  const [password, setPassword] = useState('')
+ 
+  const navigate  = useNavigate()
+ 
   const enviarDados = (e) => {
     e.preventDefault()
-    // console.log(e)
-    axios.get('http://localhost:3003/').then((res) => res.data)
 
+    let user
+
+    ax.get('/usuarios').then(async res => {
+       user = res.data.find(user => user.login === login && user.pass === password)
+        if(user){
+          return navigate("/cadastra-teste")
+        }else{
+          return alert('usuario e/ou senha incorretos')
+        }
+       })
+    
   }
 
   return (
     <Block>
       <form onSubmit={enviarDados} className="login">
-        <InputItem name={"Login"}/>
-        <InputItem name={"Password"}/>
+        <InputItem valor={login} name={"login"} tipo={'text'} aoAlterado={valor => setLogin(valor)} />
+        <InputItem valor={password} name={"password"} tipo={'password'} aoAlterado={valor => setPassword(valor)} />
         <Button name={"Enviar"} />
       </form>
     </Block>
@@ -26,3 +41,5 @@ function Login() {
 }
 
 export default Login;
+
+

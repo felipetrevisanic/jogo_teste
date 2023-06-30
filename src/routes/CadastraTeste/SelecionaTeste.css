@@ -1,0 +1,20 @@
+.teste {
+    background-color: aliceblue;
+    border-radius: 15px;
+    padding: 10px 50px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+
+}
+
+
+
+
+
+
+.icon:first-child{
+   width: 100px;
+   height: 100px;
+}

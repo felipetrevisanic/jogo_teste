@@ -1,0 +1,10 @@
+.testes{
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    list-style-type: none;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 30px;
+    cursor: pointer;
+}
